@@ -15,9 +15,9 @@ before_script:
 
 script:
   - docker --version # print the version for logging
-  - docker build -t udagram-reverseproxy ./udagram-reverseproxy
-  - docker tag udagram-reverseproxy sameermohammed/udagram-reverseproxy:latest
+  - docker build -t reverseproxy .
+  - docker tag reverseproxy sameermohammed/reverseproxy
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push sameermohammed/udagram-reverseproxy
+  - docker push sameermohammed/reverseproxy
